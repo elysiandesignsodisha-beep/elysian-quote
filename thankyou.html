@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Thanks — Elysian Designs</title>
+<link rel="icon" href="logo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Poppins',sans-serif;background:#faf8f2;display:flex;align-items:center;justify-content:center;height:100vh}
+.card{background:#fff;padding:28px;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,0.08);max-width:560px;text-align:center}
+.logo{height:70px;margin-bottom:12px}
+h1{color:#b08b4f;margin:6px 0}
+p{color:#333}
+.btn{background:#0b0b0b;color:#b08b4f;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-block;margin-top:12px}
+.small{color:#666;font-size:13px;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="card">
+  <img src="logo.jpg" class="logo" alt="Elysian Designs Logo" onerror="this.style.display='none'">
+  <h1>Thank you — we received your request!</h1>
+  <p>Our team will contact you shortly with a detailed quotation.</p>
+
+  <a id="waBtn" class="btn" href="https://wa.me/919938686600?text=Hello%2C%20I%20submitted%20a%20quote%20request%20on%20Elysian%20Designs." target="_blank">Chat on WhatsApp</a>
+
+  <p class="small">If WhatsApp doesn't open automatically, click the button above. You will also receive an email: elysiandesigns.odisha@gmail.com</p>
+  <p class="small">© Elysian Designs · Sector-7, CDA, Cuttack · GST: 21HSMPM4377M1Z2</p>
+</div>
+
+<script>
+// Optional: open WhatsApp automatically after 5 seconds to confirm to user
+setTimeout(() => {
+  // open in new tab
+  window.open(document.getElementById('waBtn').href, '_blank');
+}, 5000);
+</script>
+</body>
+</html>
