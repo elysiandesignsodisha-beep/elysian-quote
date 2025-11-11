@@ -3,100 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thank You | Elysian Designs Odisha</title>
-<meta name="description" content="Thank you for requesting a quotation from Elysian Designs — Odisha’s premier interior design studio. Our team will contact you shortly.">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Thank You | Elysian Designs</title>
 <link rel="icon" href="logo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f6f0;
-    margin: 0;
-    padding: 0;
-    color: #0b0b0b;
-    text-align: center;
-  }
+:root {
+  --black: #0b0b0b;
+  --gold: #b08b4f;
+  --ivory: #f8f6f0;
+}
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  margin: 0;
+  background: var(--ivory);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: var(--black);
+  padding: 20px;
+}
 
-  .container {
-    max-width: 700px;
-    margin: 100px auto;
-    padding: 40px 30px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  }
+.logo {
+  height: 70px;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease;
+}
 
-  img.logo {
-    height: 70px;
-    margin-bottom: 20px;
-    border-radius: 6px;
-  }
+h1 {
+  font-size: 24px;
+  color: var(--gold);
+  margin-bottom: 10px;
+  animation: slideIn 1.2s ease;
+}
 
-  h1 {
-    color: #b08b4f;
-    font-weight: 700;
-    margin-bottom: 15px;
-  }
+p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+  max-width: 400px;
+  animation: fadeInUp 1.8s ease;
+}
 
-  p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: #444;
-  }
+.btn {
+  margin-top: 25px;
+  background: var(--black);
+  color: var(--gold);
+  border: none;
+  border-radius: 10px;
+  padding: 12px 30px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  display: inline-block;
+}
+.btn:hover {
+  background: var(--gold);
+  color: var(--black);
+}
 
-  a.btn {
-    display: inline-block;
-    margin-top: 25px;
-    background: #0b0b0b;
-    color: #b08b4f;
-    padding: 12px 28px;
-    border-radius: 10px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
-  }
+footer {
+  position: fixed;
+  bottom: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  width: 100%;
+}
 
-  a.btn:hover {
-    opacity: 0.9;
-  }
+footer a {
+  color: var(--gold);
+  text-decoration: none;
+}
 
-  footer {
-    margin-top: 50px;
-    font-size: 14px;
-    color: #666;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
 
-  footer a {
-    color: #b08b4f;
-    text-decoration: none;
-  }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  footer a:hover {
-    text-decoration: underline;
-  }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 </style>
 </head>
 
 <body>
-  <div class="container">
-    <img src="logo.jpg" alt="Elysian Designs Logo" class="logo">
-    <h1>Thank You for Reaching Out!</h1>
-    <p>
-      Your quotation request has been successfully submitted to <strong>Elysian Designs</strong>.<br>
-      Our design team will review your details and contact you shortly with personalized insights.
-    </p>
-    <p>
-      Meanwhile, explore our portfolio or connect directly with us on WhatsApp.
-    </p>
-    <a href="https://www.elysiandesignsodisha.in" target="_blank" class="btn">Visit Our Website</a>
-    <a href="https://wa.me/919938686600" target="_blank" class="btn">Chat on WhatsApp</a>
-  </div>
+  <img src="logo.jpg" alt="Elysian Designs Logo" class="logo">
+
+  <h1>Thank You!</h1>
+  <p>Your quotation request has been received successfully.  
+  Our team will contact you shortly to discuss your design requirements.</p>
+
+  <a href="index.html" class="btn">🔙 Back to Calculator</a>
+  <a href="https://wa.me/919938686600?text=Hi%20Elysian%20Designs%2C%20I%20just%20requested%20a%20quote!" target="_blank" class="btn">💬 Chat on WhatsApp</a>
 
   <footer>
-    © 2025 Elysian Designs | Sector-7, CDA, Cuttack | GST: 21HSMPM4377M1Z2 <br>
-    <a href="mailto:elysiandesigns.odisha@gmail.com">elysiandesigns.odisha@gmail.com</a> |
-    <a href="https://www.instagram.com/elysiandesignsodisha/" target="_blank">Instagram</a> |
-    <a href="https://www.elysiandesignsodisha.in" target="_blank">Website</a>
+    © Elysian Designs | <a href="https://www.elysiandesignsodisha.in" target="_blank">www.elysiandesignsodisha.in</a>
   </footer>
+
+<script>
+  // ⏱️ Auto-redirect after 10 seconds
+  setTimeout(() => {
+    window.location.href = "https://www.elysiandesignsodisha.in";
+  }, 10000);
+</script>
 </body>
 </html>
