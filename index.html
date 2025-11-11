@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elysian Designs | Interior Quote Calculator</title>
+  <meta name="description" content="Instant interior design quotation calculator for residential and commercial spaces by Elysian Designs, Odisha. Get instant pricing and design insights.">
+  <meta name="keywords" content="Interior Design Odisha, Elysian Designs, Residential Interiors, Commercial Interiors, Interior Cost Calculator, Bhubaneswar, Cuttack, Puri">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -37,15 +39,9 @@
       margin-bottom: 20px;
     }
 
-    .logo {
-      height: 60px;
-    }
+    .logo { height: 60px; }
 
-    h1 {
-      color: var(--gold);
-      font-weight: 700;
-      margin: 0;
-    }
+    h1 { color: var(--gold); font-weight: 700; margin: 0; }
 
     label { font-weight: 600; margin-top: 12px; display: block; }
 
@@ -67,6 +63,7 @@
       cursor: pointer;
       font-weight: 700;
       transition: 0.2s;
+      margin-top: 10px;
     }
     .btn:hover { opacity: 0.9; }
 
@@ -176,9 +173,8 @@
       <label>Additional Notes</label>
       <textarea id="notes" rows="3" placeholder="Any style preferences, requirements, or timeline..."></textarea>
 
-      <br>
       <button class="btn" onclick="generateQuote()">Generate Quote</button>
-      <button class="btn" onclick="downloadPDF()">Download PDF</button>
+      <button class="btn" type="button" onclick="downloadPDF()">Download PDF</button>
     </form>
 
     <div id="result" class="result"></div>
@@ -192,71 +188,123 @@
     </div>
   </div>
 
+  <!-- Script Section -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
   <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzaDWpVB5FXiW4TwPy6iIH_kAMAxKLWsRVUwlvoM9Ht7T5emEOo1z4LEoCzf_63jaXq/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzaDWpVB5FXiW4TwPy6iIH_kAMAxKLWsRVUwlvoM9Ht7T5emEOo1z4LEoCzf_63jaXq/exec";
+  const WHATSAPP_NUMBER = "919938686600";
 
-    function toggleRoomOptions() {
-      const project = document.getElementById("projectType").value;
-      document.getElementById("residentialSection").style.display = project === "residential" ? "block" : "none";
-      document.getElementById("commercialSection").style.display = project === "commercial" ? "block" : "none";
+  function toggleRoomOptions() {
+    const project = document.getElementById("projectType").value;
+    document.getElementById("residentialSection").style.display = project === "residential" ? "block" : "none";
+    document.getElementById("commercialSection").style.display = project === "commercial" ? "block" : "none";
+  }
+
+  function generateQuote() {
+    const name = document.getElementById("clientName").value;
+    const email = document.getElementById("clientEmail").value;
+    const phone = document.getElementById("clientPhone").value;
+    const projectType = document.getElementById("projectType").value;
+    const pack = document.getElementById("package").value;
+    const notes = document.getElementById("notes").value;
+    let total = 0;
+
+    if (projectType === "residential") {
+      const checkedRooms = document.querySelectorAll(".room:checked").length;
+      total = 300000 + Math.max(0, checkedRooms - 1) * 50000;
+    } else {
+      const area = parseFloat(document.getElementById("area").value) || 0;
+      const rates = { base: 900, premium: 1800, luxury: 3200 };
+      total = area * rates[pack];
     }
 
-    function generateQuote() {
-      const name = document.getElementById("clientName").value;
-      const email = document.getElementById("clientEmail").value;
-      const phone = document.getElementById("clientPhone").value;
-      const projectType = document.getElementById("projectType").value;
-      const pack = document.getElementById("package").value;
-      const notes = document.getElementById("notes").value;
+    const gst = total * 0.18;
+    const grandTotal = total + gst;
 
-      let total = 0;
-      let gst = 0;
+    document.getElementById("result").innerHTML = `
+      <h3>Estimated Quotation</h3>
+      <p><strong>Client:</strong> ${name}</p>
+      <p><strong>Project Type:</strong> ${projectType}</p>
+      <p><strong>Package:</strong> ${pack.toUpperCase()}</p>
+      <p><strong>Base Estimate:</strong> ₹${total.toLocaleString()}</p>
+      <p><strong>GST (18%):</strong> ₹${gst.toLocaleString()}</p>
+      <p><strong>Total Estimate:</strong> ₹${grandTotal.toLocaleString()}</p>
+      <p><strong>Notes:</strong> ${notes}</p>
+      <button class="btn" style="background:#25D366;color:white;margin-top:10px;" onclick="shareOnWhatsApp('${name}','${projectType}','${pack}',${grandTotal})">Share on WhatsApp</button>
+    `;
 
-      if (projectType === "residential") {
-        const checkedRooms = document.querySelectorAll(".room:checked").length;
-        total = 300000 + (checkedRooms - 1) * 50000;
-      } else {
-        const area = parseFloat(document.getElementById("area").value) || 0;
-        const rates = { base: 900, premium: 1800, luxury: 3200 };
-        total = area * rates[pack];
-      }
+    const data = { name, email, phone, projectType, pack, total, gst, grandTotal, notes };
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    }).catch(err => console.error("Error!", err));
+  }
 
-      gst = total * 0.18;
-      const grandTotal = total + gst;
-
-      document.getElementById("result").innerHTML = `
-        <h3>Estimated Quotation</h3>
-        <p><strong>Client:</strong> ${name}</p>
-        <p><strong>Project Type:</strong> ${projectType}</p>
-        <p><strong>Package:</strong> ${pack.toUpperCase()}</p>
-        <p><strong>Base Estimate:</strong> ₹${total.toLocaleString()}</p>
-        <p><strong>GST (18%):</strong> ₹${gst.toLocaleString()}</p>
-        <p><strong>Total Estimate:</strong> ₹${grandTotal.toLocaleString()}</p>
-        <p><strong>Notes:</strong> ${notes}</p>
-        <hr>
-        <p><small>Quotation subject to site verification. Valid for 30 days.</small></p>
-      `;
-
-      const data = { name, email, phone, projectType, pack, total, gst, grandTotal, notes };
-      fetch(SCRIPT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      }).catch(err => console.error("Error!", err));
+  function downloadPDF() {
+    const resultDiv = document.getElementById("result");
+    if (!resultDiv.innerHTML.trim()) {
+      alert("Please generate the quotation first.");
+      return;
     }
 
-    function downloadPDF() {
-      const element = document.getElementById("result");
-      const opt = {
-        margin: 0.5,
-        filename: "Elysian_Quotation.pdf",
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-      };
-      html2pdf().set(opt).from(element).save();
-    }
+    const isLocal = window.location.protocol === "file:";
+    const logoPath = isLocal ? "" : "images/logo.jpg";
+
+    const pdfContent = document.createElement("div");
+    pdfContent.style.fontFamily = "'Poppins', sans-serif";
+    pdfContent.style.padding = "20px";
+    pdfContent.innerHTML = `
+      <div style="text-align:center;">
+        ${logoPath ? `<img src="${logoPath}" width="100">` : ""}
+        <h2 style="color:#b08b4f;margin:4px 0;">Elysian Designs</h2>
+        <p style="font-size:13px;">Residential / Commercial Interior Quotation</p>
+        <hr style="border:none;border-top:2px solid #b08b4f;margin:8px 0;">
+      </div>
+      ${resultDiv.innerHTML}
+      <hr>
+      <div style="font-size:12px;line-height:1.5;margin-top:10px;">
+        <strong>Material Specification (Indicative):</strong><br>
+        Engineered plywood, laminate/veneer finishes, emulsion paints, gypsum false ceiling, LED lighting & wall panelling. 
+        <br><br>
+        <strong>Brands Used:</strong><br>
+        Paint: Asian Paints / Berger<br>
+        Plywood: CenturyPly / Greenply<br>
+        Lighting: Havells / Wipro<br>
+        Wallpaper: Greenlam / Imported
+      </div>
+      <hr>
+      <p style="font-size:12px;">Quotation includes furniture, paint, false ceiling, wall panelling and lighting only. Excludes civil works like flooring, electrical, plumbing, demolition, etc. Valid 30 days. Subject to site verification.</p>
+      <footer style="text-align:center;font-size:12px;margin-top:8px;">
+        <p>Elysian Designs | CDA, Cuttack | GST: 21HSMPM4377M1Z2</p>
+        <p>+91-9938686600 | elysiandesigns.odisha@gmail.com</p>
+        <p>
+          <a href="https://www.elysiandesignsodisha.in" style="color:#b08b4f;text-decoration:none;">www.elysiandesignsodisha.in</a> |
+          <a href="https://www.instagram.com/elysiandesignsodisha/" style="color:#b08b4f;text-decoration:none;">Instagram</a>
+        </p>
+      </footer>
+    `;
+
+    html2pdf().set({
+      margin: 10,
+      filename: "Elysian_Quotation.pdf",
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
+    }).from(pdfContent).save();
+  }
+
+  function shareOnWhatsApp(name, projectType, pack, grandTotal) {
+    const message = 
+    `Hello Elysian Designs,%0A%0AI would like to inquire about my interior design quote:%0A%0A` +
+    `Name: ${name}%0A` +
+    `Project Type: ${projectType}%0A` +
+    `Package: ${pack.toUpperCase()}%0A` +
+    `Estimated Total: ₹${grandTotal.toLocaleString()}%0A%0A` +
+    `Please contact me for further details.%0A%0AThank you!`;
+    
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, "_blank");
+  }
   </script>
 </body>
 </html>
