@@ -1,104 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Elysian Designs | Interior Quote Calculator | Best Interior Designers in Odisha</title>
-<meta name="description" content="Get instant interior design quotations by Elysian Designs — Odisha’s trusted modern-luxe interior studio. Serving Cuttack, Bhubaneswar & PAN India." />
-<meta name="keywords" content="Elysian Designs, Interior Design Odisha, Cuttack Interiors, Bhubaneswar Interior Designer, Luxury Interiors" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elysian Designs | Instant Interior Quote Calculator | Odisha</title>
+<meta name="description" content="Get instant interior design quotations from Elysian Designs — Odisha’s leading modern-luxe interior design firm in Cuttack, Bhubaneswar & Puri. Calculate your budget now!">
+<meta name="keywords" content="Elysian Designs, interior design Odisha, interior designers Cuttack, Bhubaneswar interiors, modern luxury interiors, interior quote calculator">
 <link rel="icon" href="logo.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--black:#0b0b0b;--gold:#b08b4f;--ivory:#f8f6f0;--beige:#e6dec5}
-*{box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{margin:0;background:var(--ivory);color:var(--black)}
-.container{max-width:980px;margin:28px auto;padding:24px;background:#fff;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.08)}
-.header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.logo{height:64px;border-radius:6px}
-h1{color:var(--gold);margin:0;font-size:20px}
-.meta{font-size:13px;color:#666}
-.form{margin-top:18px}
-label{display:block;font-weight:600;margin-top:12px}
-input[type="text"],input[type="email"],input[type="tel"],input[type="number"],select,textarea{
-  width:100%;padding:10px;border-radius:8px;border:1px solid var(--beige);background:#fff;margin-top:6px;font-size:15px
+:root {
+  --black: #0b0b0b;
+  --gold: #b08b4f;
+  --ivory: #f8f6f0;
+  --beige: #e6dec5;
 }
-.row{display:flex;gap:12px}
-.row > *{flex:1}
-.section{margin-top:14px;padding:14px;border-radius:10px;border:1px solid #eee;background:#fffaf5}
-.checkbox-group{display:flex;flex-wrap:wrap;gap:10px}
-.checkbox-group label{background:#fff;border:1px solid #efe6d8;padding:8px 10px;border-radius:8px;cursor:pointer;font-size:14px}
-.btn{background:var(--black);color:var(--gold);border:none;padding:12px 16px;border-radius:10px;font-weight:700;cursor:pointer;margin-top:14px}
-.btn.secondary{background:transparent;border:1px solid var(--beige);color:var(--black);margin-left:8px}
-.result{margin-top:16px;padding:14px;border-radius:10px;background:#fbfbfb;border:1px solid var(--beige)}
-.small{color:#666;font-size:13px}
-.footer{text-align:center;color:#666;margin-top:18px;font-size:13px}
-#whatsapp-float{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,0.12)}
-@media(max-width:720px){.row{flex-direction:column}}
+* { box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body { margin:0; background:var(--ivory); color:var(--black); }
+
+.container {
+  max-width: 900px; margin: 30px auto; padding: 25px;
+  background: #fff; border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+.logo { height:60px; border-radius:6px; }
+h1 { color:var(--gold); font-weight:700; margin:5px 0; }
+
+label { font-weight:600; margin-top:12px; display:block; }
+input, select, textarea {
+  width:100%; padding:10px; border:1px solid var(--beige);
+  border-radius:8px; margin-top:5px; font-size:15px;
+}
+.btn {
+  background:var(--black); color:var(--gold); padding:12px 20px;
+  border:none; border-radius:10px; cursor:pointer; font-weight:700;
+  transition:0.3s;
+}
+.btn:hover { opacity:0.85; }
+.section { margin-top:20px; padding:15px; border:1px solid #ddd; border-radius:10px; }
+.checkbox-group { display:flex; flex-wrap:wrap; gap:10px; }
+.checkbox-group label {
+  background:#fffaf5; padding:8px 12px; border-radius:8px;
+  border:1px solid #e0d8c4; font-size:14px; cursor:pointer;
+}
+.result {
+  background:var(--ivory); padding:15px; border-radius:10px;
+  margin-top:20px; border:1px solid var(--beige);
+}
+.result strong { color:var(--gold); }
+.footer { text-align:center; font-size:14px; color:#777; margin-top:25px; }
+#whatsapp-float {
+  position: fixed; bottom: 20px; right: 20px;
+  background: #25D366; color: #fff; border-radius: 50%;
+  width: 55px; height: 55px; display: flex; justify-content: center;
+  align-items: center; font-size: 28px; text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
 </style>
 </head>
+
 <body>
 <div class="container">
   <div class="header">
-    <img src="logo.jpg" class="logo" alt="Elysian Designs Logo" onerror="this.style.display='none'">
+    <img src="logo.jpg" class="logo" alt="Elysian Designs Logo">
     <div>
       <h1>Elysian Designs</h1>
-      <div class="meta">Sector-7, CDA, Cuttack · GST: 21HSMPM4377M1Z2 · +91-9938686600</div>
-      <div class="meta"><a href="https://www.elysiandesignsodisha.in" target="_blank" style="color:var(--gold)">www.elysiandesignsodisha.in</a></div>
+      <small>Sector-7, CDA, Cuttack | GST: 21HSMPM4377M1Z2</small><br>
+      <a href="https://www.elysiandesignsodisha.in" target="_blank" style="color:var(--gold);">www.elysiandesignsodisha.in</a>
     </div>
   </div>
 
-  <form id="quoteForm" class="form" onsubmit="return false;">
-    <label>Client Name <span class="small">*(required)</span></label>
-    <input id="clientName" type="text" required>
+  <form id="quoteForm" onsubmit="return false;">
+    <label>Client Name</label>
+    <input type="text" id="clientName" required>
 
-    <div class="row">
-      <div>
-        <label>Email <span class="small">*(required)</span></label>
-        <input id="clientEmail" type="email" required>
-      </div>
-      <div>
-        <label>Phone <span class="small">*(required)</span></label>
-        <input id="clientPhone" type="tel" placeholder="+91-" required>
-      </div>
-    </div>
+    <label>Email</label>
+    <input type="email" id="clientEmail" required>
+
+    <label>Phone</label>
+    <input type="tel" id="clientPhone" placeholder="+91-" required>
 
     <label>Project Type</label>
-    <select id="projectType" onchange="toggleProject()">
+    <select id="projectType" onchange="toggleRoomOptions()">
       <option value="residential">Residential Interior</option>
       <option value="commercial">Commercial Interior</option>
     </select>
 
-    <!-- RESIDENTIAL -->
-    <div id="residentialBlock" class="section">
-      <label>Area (sq.ft) — Residential</label>
-      <input id="resArea" type="number" min="0" placeholder="Enter carpet area in sq.ft (required)">
-
-      <label style="margin-top:12px">Rooms (optional — used for description & PDF, not for pricing)</label>
-      <div class="checkbox-group" id="roomCheckboxes">
-        <label><input type="checkbox" class="room" value="Bedroom"> Bedroom <input class="qty" type="number" min="1" value="1" style="width:64px;margin-left:8px"></label>
-        <label><input type="checkbox" class="room" value="Living Room"> Living Room <input class="qty" type="number" min="1" value="1" style="width:64px;margin-left:8px"></label>
-        <label><input type="checkbox" class="room" value="Dining"> Dining <input class="qty" type="number" min="1" value="1" style="width:64px;margin-left:8px"></label>
-        <label><input type="checkbox" class="room" value="Kitchen"> Kitchen <input class="qty" type="number" min="1" value="1" style="width:64px;margin-left:8px"></label>
-        <label><input type="checkbox" class="room" value="Bathroom"> Bathroom <input class="qty" type="number" min="1" value="1" style="width:64px;margin-left:8px"></label>
+    <div id="residentialSection" class="section">
+      <label>Select Rooms & Quantity</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" class="room" value="Bedroom"> Bedroom <input type="number" min="1" value="1" class="qty" style="width:60px;"></label>
+        <label><input type="checkbox" class="room" value="Living Room"> Living Room <input type="number" min="1" value="1" class="qty" style="width:60px;"></label>
+        <label><input type="checkbox" class="room" value="Dining"> Dining <input type="number" min="1" value="1" class="qty" style="width:60px;"></label>
+        <label><input type="checkbox" class="room" value="Kitchen"> Kitchen <input type="number" min="1" value="1" class="qty" style="width:60px;"></label>
+        <label><input type="checkbox" class="room" value="Bathroom"> Bathroom <input type="number" min="1" value="1" class="qty" style="width:60px;"></label>
       </div>
-      <div class="small" style="margin-top:8px">Residential pricing uses area: Base ₹3,00,000 + (area × per-sq.ft rate). Room quantities appear in the PDF and lead for clarity.</div>
     </div>
 
-    <!-- COMMERCIAL -->
-    <div id="commercialBlock" class="section" style="display:none">
-      <label>Commercial Type</label>
-      <select id="commercialType">
-        <option>Office</option>
-        <option>Café</option>
-        <option>Retail</option>
-        <option>Restaurant</option>
-        <option>Hotel</option>
-        <option>Other</option>
-      </select>
-
-      <label style="margin-top:12px">Enter Total Area (sq.ft)</label>
-      <input id="comArea" type="number" min="0" placeholder="e.g. 1200">
-      <div class="small" style="margin-top:8px">Commercial pricing = area × per-sq.ft rate (package dependent).</div>
+    <div id="commercialSection" class="section" style="display:none;">
+      <label>Enter Total Area (sq.ft)</label>
+      <input type="number" id="area" placeholder="e.g. 1000">
     </div>
 
     <label>Package</label>
@@ -109,163 +111,130 @@ input[type="text"],input[type="email"],input[type="tel"],input[type="number"],se
     </select>
 
     <label>Additional Notes</label>
-    <textarea id="notes" rows="3" placeholder="Style, timeline or special requirements"></textarea>
+    <textarea id="notes" rows="3"></textarea>
 
-    <div style="margin-top:14px">
-      <button class="btn" onclick="generateQuote()">Generate Quote</button>
-      <button class="btn secondary" type="button" onclick="downloadPDF()">Download Quote (PDF)</button>
-    </div>
+    <br>
+    <button class="btn" onclick="generateQuote()">Generate Quote</button>
+    <button class="btn" type="button" onclick="downloadPDF()">Download PDF</button>
   </form>
 
-  <div id="result" class="result small">Fill the form and click <strong>Generate Quote</strong> to preview totals and save lead.</div>
+  <div id="result" class="result"></div>
 
   <div class="footer">
-    © Elysian Designs · Sector-7, CDA, Cuttack · <span class="small">GST: 21HSMPM4377M1Z2</span>
+    <p>© Elysian Designs | +91-9938686600 | elysiandesigns.odisha@gmail.com</p>
+    <p>
+      <a href="https://www.instagram.com/elysiandesignsodisha/" target="_blank">Instagram</a> |
+      <a href="https://www.elysiandesignsodisha.in" target="_blank">Website</a>
+    </p>
   </div>
 </div>
 
 <a id="whatsapp-float" href="https://wa.me/919938686600" target="_blank">💬</a>
 
-<!-- html2pdf only external lib -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
-
 <script>
-/* ====== Configuration ====== */
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxlc0yUlmOq4UJSWaKI4zG3kRS0-JHtmwRvd6eqcHeY_zXxsRmXSw05Oqk1u_jpik8/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyDQtvzvCO8Qdq2y-Q_I4nraewpfUztT-iOVWXeC4vHGfMLnp4Ru8jc5KIBhNnFFcjr/exec";
 
-/* per-sqft rates */
-const RES_RATES = { base:1200, premium:2000, luxury:3500 };
-const COM_RATES = { base:900, premium:1800, luxury:3200 };
-const RES_BASE = 300000; // 3 lacs
-const GST_RATE = 0.18;
-
-/* ====== UI helpers ====== */
-function toggleProject(){
-  const p = document.getElementById('projectType').value;
-  document.getElementById('residentialBlock').style.display = (p==='residential') ? 'block' : 'none';
-  document.getElementById('commercialBlock').style.display = (p==='commercial') ? 'block' : 'none';
+function toggleRoomOptions() {
+  const project = document.getElementById("projectType").value;
+  document.getElementById("residentialSection").style.display = project === "residential" ? "block" : "none";
+  document.getElementById("commercialSection").style.display = project === "commercial" ? "block" : "none";
 }
 
-/* ====== Calculation + Lead submit ====== */
-function generateQuote(){
-  const name = (document.getElementById('clientName').value || '').trim();
-  const email = (document.getElementById('clientEmail').value || '').trim();
-  const phone = (document.getElementById('clientPhone').value || '').trim();
-  const projectType = document.getElementById('projectType').value;
-  const pack = document.getElementById('package').value;
-  const notes = document.getElementById('notes').value || '';
+function generateQuote() {
+  const name = document.getElementById("clientName").value;
+  const email = document.getElementById("clientEmail").value;
+  const phone = document.getElementById("clientPhone").value;
+  const projectType = document.getElementById("projectType").value;
+  const pack = document.getElementById("package").value;
+  const notes = document.getElementById("notes").value;
 
-  if(!name || !email || !phone){
-    alert('Please enter name, email and phone (required).');
-    return;
-  }
+  let total = 0, gst = 0, description = "";
 
-  let total = 0;
-  let description = '';
-
-  if(projectType === 'residential'){
-    const area = Number(document.getElementById('resArea').value) || 0;
-    if(area <= 0){
-      alert('Please enter residential area in sq.ft for an accurate residential quote.');
-      return;
-    }
-    const rate = RES_RATES[pack];
-    total = RES_BASE + (area * rate);
-    // rooms summary
-    const checked = [...document.querySelectorAll('.room')].filter(r => r.checked);
-    const details = checked.map(r=>{
-      const qty = Number(r.parentNode.querySelector('.qty').value) || 1;
-      return `${r.value} (${qty})`;
+  if (projectType === "residential") {
+    const checked = document.querySelectorAll(".room:checked");
+    let count = 0, details = [];
+    checked.forEach(c => {
+      const qty = Number(c.parentNode.querySelector(".qty").value) || 1;
+      count += qty;
+      details.push(`${c.value} (${qty})`);
     });
-    description = `Area: ${area} sq.ft. ${ details.length ? ' | Rooms: ' + details.join(', ') : '' }`;
+    description = details.join(", ");
+    const rates = { base: 1400, premium: 2100, luxury: 3200 };
+    total = 300000 + (count - 1) * 50000 + (count * rates[pack] * 100);
   } else {
-    const area = Number(document.getElementById('comArea').value) || 0;
-    if(area <= 0){
-      alert('Please enter commercial area in sq.ft.');
-      return;
-    }
-    const rate = COM_RATES[pack];
-    total = area * rate;
-    const ctype = document.getElementById('commercialType').value;
-    description = `Commercial type: ${ctype} | Area: ${area} sq.ft.`;
+    const area = parseFloat(document.getElementById("area").value) || 0;
+    const rates = { base: 900, premium: 1800, luxury: 3200 };
+    total = area * rates[pack];
+    description = `Commercial Area: ${area} sq.ft.`;
   }
 
-  const gst = Math.round(total * GST_RATE);
-  const grandTotal = Math.round(total + gst);
+  gst = total * 0.18;
+  const grandTotal = total + gst;
 
-  // render result preview
-  document.getElementById('result').innerHTML = `
-    <h3 style="margin:0 0 8px 0;color:var(--black)">Quotation Preview</h3>
-    <div><strong>Client:</strong> ${escapeHtml(name)} · <span class="small">${escapeHtml(phone)} / ${escapeHtml(email)}</span></div>
-    <div style="margin-top:8px"><strong>Project:</strong> ${projectType} · <strong>Package:</strong> ${pack.toUpperCase()}</div>
-    <div style="margin-top:8px"><strong>Details:</strong> ${escapeHtml(description)}</div>
-    <div style="margin-top:8px"><strong>Base Total:</strong> ₹${numberWithCommas(total)} · <strong>GST (18%):</strong> ₹${numberWithCommas(gst)} · <strong>Grand Total:</strong> <span style="color:var(--gold)">₹${numberWithCommas(grandTotal)}</span></div>
-    <div class="small" style="margin-top:10px">Material specs included: Paint (Asian/ Berger), Plywood (Century/ Greenply), Lighting (Havells/Wipro). Excludes civil works.</div>
+  document.getElementById("result").innerHTML = `
+    <h3>Estimated Quotation</h3>
+    <p><strong>Client:</strong> ${name}<br><strong>Phone:</strong> ${phone}<br><strong>Email:</strong> ${email}</p>
+    <p><strong>Project Type:</strong> ${projectType}<br><strong>Package:</strong> ${pack.toUpperCase()}</p>
+    <p><strong>Details:</strong> ${description}</p>
+    <p><strong>Base Total:</strong> ₹${total.toLocaleString()}<br>
+    <strong>GST (18%):</strong> ₹${gst.toLocaleString()}<br>
+    <strong>Grand Total:</strong> ₹${grandTotal.toLocaleString()}</p>
+    <hr>
+    <p><strong>Material Specs (Package: ${pack.toUpperCase()})</strong><br>
+    Paint: Asian Paints / Berger | Plywood: CenturyPly / Greenply<br>
+    Lighting: Havells / Wipro | Wallpaper: Greenlam / Imported</p>
+    <p><small>Terms: Includes furniture, paint, false ceiling, wall panelling, lighting. Excludes civil works. Valid 30 days.</small></p>
   `;
 
-  // send lead to Apps Script
-  const payload = { name, email, phone, projectType, pack, description, total, gst, grandTotal, notes };
+  // Send lead to Google Sheets
   fetch(SCRIPT_URL, {
-    method: 'POST',
-    headers: {'Content-Type':'application/json'},
-    body: JSON.stringify(payload)
-  }).then(resp => {
-    // redirect to thankyou page (client-facing) after submit
-    // NOTE: If you prefer to open WhatsApp immediately, change this to window.open(waUrl)
-    window.location.href = 'thankyou.html';
-  }).catch(err=>{
-    console.error('Lead save error:', err);
-    // still redirect to thankyou — but warn user the lead save failed
-    alert('Quote generated but lead could not be saved to the server. Try again online or contact us on WhatsApp.');
-    window.location.href = 'thankyou.html';
-  });
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, phone, projectType, pack, description, total, gst, grandTotal, notes })
+  }).then(() => {
+    const msg = encodeURIComponent(
+      `Hello ${name}, thank you for requesting a quote with *Elysian Designs*! 🎨✨\n\n` +
+      `Project Type: ${projectType}\nPackage: ${pack.toUpperCase()}\nEstimated Total: ₹${grandTotal.toLocaleString()}\n\n` +
+      `We'll reach you shortly.\nVisit us: https://www.elysiandesignsodisha.in`
+    );
+    window.open(`https://wa.me/919938686600?text=${msg}`, '_blank');
+    window.location.href = "thankyou.html";
+  }).catch(e => console.error("Lead save error:", e));
 }
 
-/* ====== PDF generation ====== */
-function downloadPDF(){
-  const name = document.getElementById('clientName').value || 'Client';
-  const resultHtml = document.getElementById('result').innerHTML || '<div>No preview — generate quote first.</div>';
-
-  // Build PDF wrapper including header/logo
-  const pdfWrapper = document.createElement('div');
-  pdfWrapper.style.fontFamily = 'Poppins, sans-serif';
-  pdfWrapper.style.padding = '18px';
-  pdfWrapper.style.background = '#fff';
-  pdfWrapper.innerHTML = `
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-      <div><img src="logo.jpg" style="height:56px"></div>
-      <div style="text-align:right;font-size:12px;color:#222">
-        <div style="font-weight:700">Elysian Designs</div>
-        <div>Sector-7, CDA, Cuttack</div>
-        <div>GST: 21HSMPM4377M1Z2</div>
-        <div>+91-9938686600</div>
-        <div>elysiandesigns.odisha@gmail.com</div>
+function downloadPDF() {
+  const name = document.getElementById("clientName").value || "Client";
+  const result = document.getElementById("result");
+  const pdfContent = document.createElement("div");
+  pdfContent.innerHTML = `
+    <div style="font-family:Poppins, sans-serif; padding:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <img src="logo.jpg" style="height:50px;border-radius:6px;">
+        <div style="text-align:right;">
+          <strong>Elysian Designs</strong><br>
+          Sector-7, CDA, Cuttack<br>
+          GST: 21HSMPM4377M1Z2<br>
+          +91-9938686600<br>
+          elysiandesigns.odisha@gmail.com
+        </div>
       </div>
+      <hr style="margin:10px 0;">
+      ${result.innerHTML}
+      <hr>
+      <p style="text-align:center;font-size:12px;color:#555;margin-top:20px;">
+        © Elysian Designs | <a href='https://www.elysiandesignsodisha.in' target='_blank'>www.elysiandesignsodisha.in</a>
+      </p>
     </div>
-    <hr style="border:none;border-top:1px solid #eee;margin:8px 0">
-    ${resultHtml}
-    <hr style="border:none;border-top:1px solid #eee;margin:12px 0">
-    <div style="font-size:12px;color:#444">
-      <strong>Material Specification & Brands</strong><br>
-      Paint: Asian Paints / Berger · Plywood: CenturyPly / Greenply · Lighting: Havells / Wipro · Wallpaper/Panels: Greenlam / Imported options
-    </div>
-    <div style="margin-top:14px;font-size:12px;color:#666">Terms: Includes furniture, paint, false ceiling, wall panelling & lighting only. Excludes flooring, plumbing, electrical & demolition. Valid for 30 days. Final quote after site visit.</div>
-    <footer style="margin-top:18px;font-size:12px;color:#666;text-align:center">© Elysian Designs · https://www.elysiandesignsodisha.in</footer>
   `;
-
-  html2pdf().from(pdfWrapper).set({
-    margin: 0.5,
-    filename: `Elysian_Quotation_${sanitizeFilename(name)}.pdf`,
-    image: { type: 'jpeg', quality: 1 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+  html2pdf().from(pdfContent).set({
+    margin:0.5,
+    filename:`Elysian_Quotation_${name}.pdf`,
+    image:{type:'jpeg',quality:1},
+    html2canvas:{scale:2},
+    jsPDF:{unit:'in',format:'a4',orientation:'portrait'}
   }).save();
 }
-
-/* ====== Utilities ====== */
-function numberWithCommas(x){ return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
-function sanitizeFilename(s){ return (s||'client').replace(/\s+/g,'_').replace(/[^\w\-_\.]/g,''); }
-function escapeHtml(s){ return String(s||'').replace(/[&<>"']/g, (m)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
 </script>
 </body>
 </html>
