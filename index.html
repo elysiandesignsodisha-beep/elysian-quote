@@ -1,63 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Elysian Designs | Interior Quote Calculator</title>
-<meta name="description" content="Get instant interior design quotations by Elysian Designs — Odisha’s trusted modern-luxe interior design firm based in Cuttack & Bhubaneswar.">
-<link rel="icon" href="logo.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<meta name="description" content="Get instant interior design quotations by Elysian Designs — Odisha’s trusted modern-luxe interior design firm based in Cuttack & Bhubaneswar." />
+<link rel="icon" href="logo.jpg" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 <style>
 :root {--black:#0b0b0b;--gold:#b08b4f;--ivory:#f9f7f2;--beige:#e8e0ca;}
 *{box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{margin:0;background:var(--ivory);color:var(--black);}
-.container{max-width:900px;margin:30px auto;padding:25px;background:#fff;border-radius:12px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);}
+.container{max-width:900px;margin:30px auto;padding:25px;background:#fff;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.08);}
 .header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
 .logo{height:60px;border-radius:6px;}
 h1{color:var(--gold);font-weight:700;margin:5px 0;}
 label{font-weight:600;margin-top:12px;display:block;}
-input,select,textarea{width:100%;padding:10px;border:1px solid var(--beige);border-radius:8px;
-  margin-top:5px;font-size:15px;}
-.btn{background:var(--black);color:var(--gold);padding:12px 20px;border:none;border-radius:10px;
-  cursor:pointer;font-weight:700;transition:0.3s;margin-right:10px;}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--beige);border-radius:8px;margin-top:5px;font-size:15px;}
+.btn{background:var(--black);color:var(--gold);padding:12px 20px;border:none;border-radius:10px;cursor:pointer;font-weight:700;transition:0.3s;margin-right:10px;}
 .btn:hover{opacity:0.85;}
 .section{margin-top:20px;padding:15px;border:1px solid #ddd;border-radius:10px;}
 .checkbox-group{display:flex;flex-wrap:wrap;gap:10px;}
-.checkbox-group label{background:#fffaf5;padding:8px 12px;border-radius:8px;
-  border:1px solid #e0d8c4;font-size:14px;cursor:pointer;}
+.checkbox-group label{background:#fffaf5;padding:8px 12px;border-radius:8px;border:1px solid #e0d8c4;font-size:14px;cursor:pointer;}
 .result{background:var(--ivory);padding:15px;border-radius:10px;margin-top:20px;border:1px solid var(--beige);}
 .result strong{color:var(--gold);}
 .footer{text-align:center;font-size:14px;color:#777;margin-top:25px;}
-#whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;border-radius:50%;
-  width:55px;height:55px;display:flex;justify-content:center;align-items:center;font-size:28px;
-  text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,0.3);}
-#thanksMsg{display:none;text-align:center;padding:15px;background:#f0f0eb;
-  border-radius:10px;margin-top:15px;color:#333;}
+#whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;border-radius:50%;width:55px;height:55px;display:flex;justify-content:center;align-items:center;font-size:28px;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,0.3);}
+#thanksMsg{display:none;text-align:center;padding:15px;background:#f0f0eb;border-radius:10px;margin-top:15px;color:#333;}
 </style>
 </head>
 
 <body>
 <div class="container">
   <div class="header">
-    <img src="logo.jpg" class="logo" alt="Elysian Designs Logo">
+    <img src="logo.jpg" class="logo" alt="Elysian Designs Logo" />
     <div>
       <h1>Elysian Designs</h1>
-      <small>Sector-7, CDA, Cuttack | GST: 21HSMPM4377M1Z2</small><br>
+      <small>Sector-7, CDA, Cuttack | GST: 21HSMPM4377M1Z2</small><br />
       <a href="https://www.elysiandesignsodisha.in" target="_blank" style="color:var(--gold);">www.elysiandesignsodisha.in</a>
     </div>
   </div>
 
   <form id="quoteForm" onsubmit="return false;">
     <label>Client Name</label>
-    <input type="text" id="clientName" required>
+    <input type="text" id="clientName" required />
 
     <label>Email</label>
-    <input type="email" id="clientEmail" required>
+    <input type="email" id="clientEmail" required />
 
     <label>Phone</label>
-    <input type="tel" id="clientPhone" placeholder="+91-" required>
+    <input type="tel" id="clientPhone" placeholder="+91-" required />
 
     <label>Project Type</label>
     <select id="projectType" onchange="toggleRoomOptions()">
@@ -69,21 +61,21 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--beige);bord
       <label>Select Rooms & Quantity</label>
       <div class="checkbox-group">
         <label><input type="checkbox" class="room" value="Bedroom"> Bedroom 
-          <input type="number" min="1" value="1" class="qty" style="width:55px;"></label>
+          <input type="number" min="1" value="1" class="qty" style="width:55px;" /></label>
         <label><input type="checkbox" class="room" value="Living Room"> Living Room 
-          <input type="number" min="1" value="1" class="qty" style="width:55px;"></label>
+          <input type="number" min="1" value="1" class="qty" style="width:55px;" /></label>
         <label><input type="checkbox" class="room" value="Dining"> Dining 
-          <input type="number" min="1" value="1" class="qty" style="width:55px;"></label>
+          <input type="number" min="1" value="1" class="qty" style="width:55px;" /></label>
         <label><input type="checkbox" class="room" value="Kitchen"> Kitchen 
-          <input type="number" min="1" value="1" class="qty" style="width:55px;"></label>
+          <input type="number" min="1" value="1" class="qty" style="width:55px;" /></label>
         <label><input type="checkbox" class="room" value="Bathroom"> Bathroom 
-          <input type="number" min="1" value="1" class="qty" style="width:55px;"></label>
+          <input type="number" min="1" value="1" class="qty" style="width:55px;" /></label>
       </div>
     </div>
 
     <div id="commercialSection" class="section" style="display:none;">
       <label>Enter Total Area (sq.ft)</label>
-      <input type="number" id="area" placeholder="e.g. 1000">
+      <input type="number" id="area" placeholder="e.g. 1000" />
     </div>
 
     <label>Package</label>
@@ -96,7 +88,7 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--beige);bord
     <label>Additional Notes</label>
     <textarea id="notes" rows="3" placeholder="Any specific style preferences or timeline..."></textarea>
 
-    <br>
+    <br />
     <button class="btn" type="button" onclick="generateQuote()">Generate Quote</button>
     <button class="btn" type="button" onclick="downloadPDF()">Download PDF</button>
   </form>
@@ -106,8 +98,8 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--beige);bord
 
   <div class="footer">
     <p>© Elysian Designs | +91-9938686600 | elysiandesigns.odisha@gmail.com</p>
-    <p><a href="https://www.instagram.com/elysiandesignsodisha/" target="_blank">Instagram</a> | 
-       <a href="https://www.elysiandesignsodisha.in" target="_blank">Website</a></p>
+    <p><a href="https://www.instagram.com/elysiandesignsodisha/" target="_blank">Instagram</a> |
+      <a href="https://www.elysiandesignsodisha.in" target="_blank">Website</a></p>
   </div>
 </div>
 
@@ -115,8 +107,8 @@ input,select,textarea{width:100%;padding:10px;border:1px solid var(--beige);bord
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
 <script>
-// ---------- Sheet.best integration ----------
-const SHEET_URL = "https://api.sheetbest.com/sheets/67c6840e-ef50-4786-8b9a-2296d4769e7f";
+// ---------- Sheet.best Integration ----------
+const SHEET_URL = "https://api.sheetbest.com/sheets/941bb55a-948c-4abf-b5c8-207769e70cff";
 
 function toggleRoomOptions(){
   const p=document.getElementById("projectType").value;
